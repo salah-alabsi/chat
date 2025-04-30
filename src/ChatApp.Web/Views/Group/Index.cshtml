@@ -1,0 +1,10 @@
+@model List<ChatApp.Chat.Dto.GroupDto>
+
+<h2>Groups</h2>
+
+<ul>
+    @foreach (var group in Model)
+    {
+        <li>@group.Name</li>
+    }
+</ul>
