@@ -17,7 +17,7 @@ namespace ChatApp.HttpApi.SignalR
         // Optionally add methods if you need (e.g., joining groups later)
         public override async Task OnConnectedAsync()
         {
-            Console.WriteLine("currentUser" + _currentUser.Id);
+            
             var userId = Context.UserIdentifier;
 
             Console.WriteLine($"[SignalR] User connected: {userId}");
