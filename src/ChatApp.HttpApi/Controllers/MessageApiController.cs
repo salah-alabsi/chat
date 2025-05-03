@@ -29,7 +29,7 @@ namespace ChatApp.HttpApi.Controllers
             }
 
             // Sending private message via service
-            var messageDto = await _messageAppService.SendPrivateMessageAsync(input.RecipientId, input.Text);
+            var messageDto = await _messageAppService.SendPrivateMessageAsync(input);
 
             // Return the message DTO as a successful response
             return Ok(messageDto); // Message DTO is returned inside OkResult

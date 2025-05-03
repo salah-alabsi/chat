@@ -9,6 +9,9 @@ using Volo.Abp.FeatureManagement;
 using Volo.Abp.Modularity;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.Application;
+using Volo.Abp.Users;
+using System;
+
 
 namespace ChatApp;
 
@@ -38,5 +41,17 @@ public class ChatAppApplicationModule : AbpModule
 
         // Registering other services if needed
         context.Services.AddAutoMapper(typeof(ChatAppApplicationModule));  // Register AutoMapper profiles
+        
+
+        
+
+    Configure<AbpAutoMapperOptions>(options =>
+    {
+        options.AddMaps<ChatAppApplicationModule>();
+    });
+
+    context.Services.AddAutoMapper(typeof(ChatAppApplicationModule));
+    Console.WriteLine("ChatAppApplicationModule loading...");
+
     }
 }
