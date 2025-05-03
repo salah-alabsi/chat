@@ -15,11 +15,11 @@ namespace ChatApp.ChatAppService
     public class GroupAppService : ApplicationService, IGroupAppService
     {
         private readonly IGroupRepository _groupRepository;
-        private readonly IGroupMemberRepository _groupMemberRepository;
+       private readonly IRepository<GroupMember, Guid> _groupMemberRepository;
         private readonly IMapper _mapper;
 
       
-        public GroupAppService(IGroupRepository groupRepository, IGroupMemberRepository groupMemberRepository, IMapper mapper)
+        public GroupAppService(IGroupRepository groupRepository, IRepository<GroupMember, Guid>  groupMemberRepository, IMapper mapper)
         {
             _groupRepository = groupRepository;
             _groupMemberRepository = groupMemberRepository;

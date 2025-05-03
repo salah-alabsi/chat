@@ -41,6 +41,7 @@ namespace ChatApp.ChatAppService
         {
             var message = new Message(GuidGenerator.Create(), senderId, text, null, groupId);
             await _messageRepository.InsertAsync(message);
+             await _notificationSender.SendGroupMessageAsync(groupId, text);
             return _mapper.Map<MessageDto>(message);
         }
 

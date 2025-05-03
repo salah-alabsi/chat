@@ -18,9 +18,15 @@ namespace ChatApp.SignalR
         public async Task SendPrivateMessageAsync(Guid receiverId, string message)
         {
             Console.WriteLine($"Sending private message to {receiverId}: {message}");
-        
-                await _hubContext.Clients.User(receiverId.ToString()).SendAsync("ReceivePrivateMessage", message);
+
+            await _hubContext.Clients.User(receiverId.ToString()).SendAsync("ReceivePrivateMessage", message);
 
         }
+        public async Task SendGroupMessageAsync(Guid groupId, string message)
+        {
+            Console.WriteLine($"Sending group message to group {groupId}: {message}");
+            await _hubContext.Clients.Group(groupId.ToString()).SendAsync("ReceiveGroupMessage", message);
+        }
+
     }
 }

@@ -53,6 +53,7 @@ using Volo.Abp.Studio.Client.AspNetCore;
 using ChatApp.SignalR;
 using ChatApp.HttpApi.SignalR;
 
+
 namespace ChatApp.Web;
 
 [DependsOn(
@@ -69,7 +70,8 @@ namespace ChatApp.Web;
     typeof(AbpSwashbuckleModule),
     typeof(AbpAspNetCoreSerilogModule)
 )]
-public class ChatAppWebModule : AbpModule
+
+    public class ChatAppWebModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
